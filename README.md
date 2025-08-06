@@ -4,7 +4,7 @@ The repo presents the pipeline of preprocessing protein sequences and predicting
 
 ## 1. Cut fasta into windows
 
-``` 
+```sh
 $ python 1_cut_fasta.py 
 ```
 
