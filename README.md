@@ -6,13 +6,11 @@ The repo presents the pipeline of preprocessing protein sequences and predicting
 
 ``` 
 $ python 1_cut_fasta.py 
-
 ```
 
-## 2. Compute pssm features
+## 2. Compute PSSM features
 
 ``` 
-
 # install mmseqs
 $ wget https://mmseqs.com/latest/mmseqs-linux-avx2.tar.gz
 $ tar xzf mmseqs-linux-avx2.tar.gz
@@ -21,20 +19,22 @@ $ mmseqs databases UniProtKB/Swiss-Prot swissprot tmp
 
 # convert a FASTA file to PSSM
 $ sh 2_compute_pssm.sh 
-
 ```
 
-
-
+## 3. Cut PSSM features
 
 ``` 
-
-#
-sh 2_compute_pssm.sh 
-
 python 3_extract_pssm.py 
+```
 
+## 4. Compute PC features
+
+``` 
 python 4_compute_PCfeas.py 
+```
 
+## 5. Move all files to SCANS folder
+
+``` 
 python 5_move_to_SCANS.py 
 ```
