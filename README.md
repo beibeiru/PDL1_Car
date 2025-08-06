@@ -1,18 +1,35 @@
 # PDL1 Carbonylation Site Prediction
 
-The repo presents the pipeline of predicting protein carbonylation sites. 
+The repo presents the pipeline of preprocessing protein sequences and predicting protein carbonylation sites. 
 
-## cut fasta into windows
-
-To install `SecAct`, we recommend using `devtools`:
+## 1. Cut fasta into windows
 
 ``` 
-python 1_cut_fasta.py 
+$ python 1_cut_fasta.py 
 
-sh 2_compute_pssm.sh 
+```
 
-export PATH=$PWD/mmseqs/bin:$PATH
+## 2. Compute pssm features
 
+``` 
+
+# install mmseqs
+$ wget https://mmseqs.com/latest/mmseqs-linux-avx2.tar.gz
+$ tar xzf mmseqs-linux-avx2.tar.gz
+$ export PATH=$PWD/mmseqs/bin:$PATH
+$ mmseqs databases UniProtKB/Swiss-Prot swissprot tmp
+
+# convert a FASTA file to PSSM
+$ sh 2_compute_pssm.sh 
+
+```
+
+
+
+
+``` 
+
+#
 sh 2_compute_pssm.sh 
 
 python 3_extract_pssm.py 
