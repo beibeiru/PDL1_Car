@@ -24,17 +24,29 @@ $ sh 2_compute_pssm.sh
 ## 3. Cut PSSM features
 
 ``` 
-python 3_extract_pssm.py 
+$ python 3_extract_pssm.py 
 ```
 
 ## 4. Compute PC features
 
 ``` 
-python 4_compute_PCfeas.py 
+$ python 4_compute_PCfeas.py 
 ```
 
 ## 5. Move all files to SCANS folder
 
 ``` 
-python 5_move_to_SCANS.py 
+$ python 5_move_to_SCANS.py 
+```
+
+## 6. Run SCANS
+
+``` 
+$ sh 6_run_SCANS.sh 
+```
+
+## 7. Combine all sequences
+
+``` 
+$ python 7_combine_results.py 
 ```
