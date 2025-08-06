@@ -42,6 +42,11 @@ $ python 5_move_to_SCANS.py
 ## 6. Run SCANS
 
 ``` 
+# install SCANS
+$ wget https://github.com/jianzhang-xynu/SCANS/archive/refs/heads/master.zip
+$ pip install fair-esm
+$ export PYTHONPATH=/home/rub2/.local/lib/python3.10/site-packages:$PYTHONPATH
+
 $ sh 6_run_SCANS.sh 
 ```
 
