@@ -62,7 +62,7 @@ $ python 7_combine_results.py
 $ R 8_plot.R 
 ```
 
-## ppendix
+## Appendix
 ```
 rm SCANS-master/source_code/SCANS_*/feas/*/*@*
 rm SCANS-master/source_code/SCANS_*/seqs/*@*
