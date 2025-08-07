@@ -63,6 +63,7 @@ $ R 8_plot.R
 ```
 
 ## Appendix
+
 ```
 rm SCANS-master/source_code/SCANS_*/feas/*/*@*
 rm SCANS-master/source_code/SCANS_*/seqs/*@*
@@ -76,9 +77,9 @@ rm -rf preprocess/result
 rm -rf preprocess/tmp
 rm -rf preprocess/window
 
-mmseqs createdb swissprot.fasta swissprot
-mmseqs createindex swissprot tmp
-
 # SCANS uses older version of mmseqs (Feb 11, 2020).
 # there is tiny difference.
+
+mmseqs createdb swissprot.fasta swissprot
+mmseqs createindex swissprot tmp
 ```
