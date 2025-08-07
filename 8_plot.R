@@ -11,7 +11,7 @@ comb$V6 <- substr(comb$V5, 1, 1)
 comb$V5 <- substring(comb$V5, 2)
 comb$V7 <- "other"
 
-comb <- comb[!comb$V3%in%c("exampleALBU","exampleLACB"),]
+comb <- comb[!comb$V3%in%c("exampleALBU","exampleLACB","VISTA"),]
 
 # Rename columns for clarity (optional)
 colnames(comb) <- c("Full_ID", "Prediction", "Gene", "Uniprot", "Position", "AA", "Domain")
@@ -105,12 +105,42 @@ for(j in c("Complete","CytoplasmicAndTransmembrane","Cytoplasmic"))
 	  geom_bar(stat = "identity") +
 	  facet_wrap(~ Metric, scales = "free_y", ncol = 1) +  # one facet per metric
 	  theme_bw() +
-	  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+	  theme(panel.grid = element_blank(),
+		  panel.background = element_blank(),
+		  axis.text.x = element_text(angle = 45, hjust = 1),
 	        legend.position = "none") +
 	  xlab("Gene") + ylab("Value") +
 	  ggtitle("Protein Carbonylation Scores")
 	
 	ggsave(paste0("bar_",j,"_Comb.png"), p, width = 10, height = 15, dpi=200, units = "cm", limitsize = FALSE)
+	
+	
+	# Create scatter plot
+	library(ggrepel)
+	p <- ggplot(protein_scores, aes(x = Mean_Score, y = Sum_Score, label=Gene)) +
+	  geom_point(color="brown") +
+	  geom_text_repel(max.overlaps=20)+
+	  theme_bw() +
+	  theme(panel.grid = element_blank(),
+		  panel.background = element_blank(),
+	        legend.position = "none") +
+	  ggtitle(" ")
+	
+	ggsave(paste0("scatter_",j,"_Mean_Sum_Comb.pdf"), p, width = 10, height = 10, units = "cm")
+	
+	# Create scatter plot
+	library(ggrepel)
+	p <- ggplot(protein_scores, aes(x = Mean_Score, y = Max_Score, label=Gene)) +
+	  geom_point(color="purple") +
+	  geom_text_repel(max.overlaps=20)+
+	  theme_bw() +
+	  theme(panel.grid = element_blank(),
+		  panel.background = element_blank(),
+	        legend.position = "none") +
+	  ggtitle(" ")
+	
+	ggsave(paste0("scatter_",j,"_Mean_Max_Comb.pdf"), p, width = 10, height = 10, units = "cm")
+	
 	
 	
 	protein_scores_long <- comb %>%
@@ -130,7 +160,9 @@ for(j in c("Complete","CytoplasmicAndTransmembrane","Cytoplasmic"))
 	  geom_bar(stat = "identity") +
 	  facet_grid(Metric ~ AA, scales = "free_y") +  # Rows = Metric, Columns = AA
 	  theme_bw() +
-	  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+	  theme(panel.grid = element_blank(),
+		  panel.background = element_blank(),
+		  axis.text.x = element_text(angle = 45, hjust = 1),
 	        legend.position = "none") +
 	  xlab("Gene") + ylab("Value") +
 	  ggtitle("Protein Carbonylation Scores by Amino Acid")
