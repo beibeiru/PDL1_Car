@@ -56,8 +56,26 @@ $ sh 6_run_SCANS.sh
 $ python 7_combine_results.py 
 ```
 
-## 8. plot
+## 8. Plot
 
 ``` 
 $ R 8_plot.R 
+```
+
+## ppendix
+```
+rm SCANS-master/source_code/SCANS_*/feas/*/*@*
+rm SCANS-master/source_code/SCANS_*/seqs/*@*
+
+rm -rf preprocess/PCfeas
+rm -rf preprocess/profile
+rm -rf preprocess/pssm
+rm -rf preprocess/PSSMfeas
+rm -rf preprocess/query
+rm -rf preprocess/result
+rm -rf preprocess/tmp
+rm -rf preprocess/window
+
+mmseqs createdb swissprot.fasta swissprot
+mmseqs createindex swissprot tmp
 ```
