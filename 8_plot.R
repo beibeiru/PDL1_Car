@@ -1,3 +1,4 @@
+library(ggplot2)
 
 comb <- read.csv("combined_all_results.txt", header = FALSE, stringsAsFactors = FALSE)
 
@@ -33,7 +34,6 @@ protein_scores <- comb %>%
     Total_Sites = n()
   )
 
-library(ggplot2)
 library(tidyr)  # for pivot_longer
 
 # Assuming 'protein_scores' is already created as before
