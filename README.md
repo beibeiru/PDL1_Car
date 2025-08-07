@@ -78,4 +78,7 @@ rm -rf preprocess/window
 
 mmseqs createdb swissprot.fasta swissprot
 mmseqs createindex swissprot tmp
+
+# SCANS uses older version of mmseqs (Feb 11, 2020).
+# there is tiny difference.
 ```
