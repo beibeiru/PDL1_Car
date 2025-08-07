@@ -55,3 +55,9 @@ $ sh 6_run_SCANS.sh
 ``` 
 $ python 7_combine_results.py 
 ```
+
+## 8. plot
+
+``` 
+$ R 8_plot.R 
+```
