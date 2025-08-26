@@ -169,5 +169,4 @@ for(j in c("Complete","CytoplasmicAndTransmembrane","Cytoplasmic"))
 	  
 	ggsave(paste0("bar_",j,"_Single.png"), p, width = 30, height = 15, dpi=200, units = "cm", limitsize = FALSE)
 
-
 }
